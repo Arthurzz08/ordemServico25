@@ -79,7 +79,7 @@ public class UsuarioDAO {
 
         try {
             //1 passo - criar o sql
-            String sql = "insert into tbusuarios(iduser, usuario, fone, login, senha, perfil) values(?,?,?,?,md5(?)7665,?)";
+            String sql = "insert into tbusuarios(iduser, usuario, fone, login, senha, perfil) values(?,?,?,?,md5(?),?)";
             //2 passo o conectar o banco de dados e organizar o comando sql
             conexao = ModuloConexao.conectar();
             PreparedStatement stmt = conexao.prepareStatement(sql);
