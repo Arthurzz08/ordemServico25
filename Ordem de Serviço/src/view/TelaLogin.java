@@ -144,11 +144,29 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Senha");
 
+        jTxtUsario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtUsarioActionPerformed(evt);
+            }
+        });
+
+        jTxtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtSenhaActionPerformed(evt);
+            }
+        });
+
         jBtnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBtnLogin.setMnemonic('e');
         jBtnLogin.setText("Entrar");
         jBtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnLoginActionPerformed(evt);
+            }
+        });
+        jBtnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jBtnLoginKeyPressed(evt);
             }
         });
 
@@ -222,6 +240,36 @@ public class TelaLogin extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtnLoginActionPerformed
+
+    private void jBtnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBtnLoginKeyPressed
+       // Botao entrar
+        try {
+            String usario, senha;
+           
+            usario = jTxtUsario.getText();
+            senha = jTxtSenha.getText();
+            
+            UsuarioDAO  dao = new UsuarioDAO();
+            
+            
+            dao.efetuaLogin(usario, senha);
+            
+            
+            this.dispose();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "erro");
+            
+        }
+    }//GEN-LAST:event_jBtnLoginKeyPressed
+
+    private void jTxtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtSenhaActionPerformed
+
+    private void jTxtUsarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtUsarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtUsarioActionPerformed
 
     /**
      * @param args the command line arguments
